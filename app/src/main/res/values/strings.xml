@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Lal</string>
+
+    <!--登录界面-->
+    <string name="login_input_phone">请输入手机号码</string>
+    <string name="login_input_pwd">请输入密码</string>
+    <string name="login_login">登录</string>
+
+    <!--注册界面-->
+    <string name="register_input_phone">请输入手机号码</string>
+    <string name="register_input_pwd">请输入密码</string>
+    <string name="register_register">注册</string>
+</resources>

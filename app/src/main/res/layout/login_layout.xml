@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/login_input_phone"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:counterMaxLength="11">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:hint="@string/login_input_phone"
+            android:textColorHint="#CFD8DC"
+            android:maxLength="11"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/login_input_pwd"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:counterMaxLength="11">
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:hint="@string/login_input_pwd"
+            android:textSize="18sp"
+            android:maxLength="11"/>
+
+    </android.support.design.widget.TextInputLayout>
+    
+    <Button
+        android:id="@+id/sub_login"
+        android:hint="@string/login_login"
+        android:background="#CFD8DC"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"/>
+
+    <Button
+        android:id="@+id/sub_register"
+        android:hint="@string/register_register"
+        android:background="#CFD8DC"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"/>
+
+</LinearLayout>
