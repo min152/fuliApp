@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import project.first.lal.common.Constants;
+import project.first.lal.common.utils.statusBar.StatusBarUtil;
 
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void onCreate();
 
@@ -15,7 +17,8 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     protected abstract void initClick();
 
-    Unbinder mUnbinder;
+    protected Unbinder mUnbinder;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +26,8 @@ public abstract class BaseActivity extends AppCompatActivity{
         if (null == layout)
             return;
         setContentView(layout);
-        mUnbinder= ButterKnife.bind(this);  //保存引用
+        StatusBarUtil.setTranslucent(this, Constants.TRANTSPARENT);
+        mUnbinder = ButterKnife.bind(this);  //保存引用
         onCreate();
         initClick();
     }

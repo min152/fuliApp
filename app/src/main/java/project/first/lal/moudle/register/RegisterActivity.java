@@ -24,13 +24,13 @@ import project.first.lal.moudle.UserInfo;
  * @说明 代码版权归 作者 所有
  */
 public class RegisterActivity extends BaseActivity {
-    @BindView(R.id.et_phone)
-    EditText mEtPhone;
-    @BindView(R.id.et_pwd)
-    EditText mEtPwd;
+
+    @BindView(R.id.et_register_phone)
+    EditText mEtRegisterPhone;
+    @BindView(R.id.et_register_pwd)
+    EditText mEtRegisterPwd;
     @BindView(R.id.sub_register)
     Button mSubRegister;
-
     private String phone;
 
     private String pwd;
@@ -49,15 +49,15 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void initClick() {
-        phone = mEtPhone.getText().toString();
-        pwd = mEtPwd.getText().toString();
         mSubRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                phone = mEtRegisterPhone.getText().toString();
+                pwd = mEtRegisterPwd.getText().toString();
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("phone", phone);
                 map.put("pwd", MD5Util.Md5(pwd));
-                RegisterDateHanle.getInstance().register(new HttpInterface<UserInfo>() {
+                RegisterDateHandle.getInstance().register(new HttpInterface<UserInfo>() {
                     @Override
                     public void onNext(List<UserInfo> data) {
                         Log.e(TAG, data.toString());

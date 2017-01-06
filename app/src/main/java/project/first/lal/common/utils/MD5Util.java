@@ -4,6 +4,7 @@ package project.first.lal.common.utils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -74,9 +75,11 @@ public class MD5Util {
         if (map == null) {
             return "";
         }
+        Object[] key = map.keySet().toArray();
+        Arrays.sort(key);
         StringBuffer sb = new StringBuffer();
-        for (HashMap.Entry<String, String> entry : map.entrySet()) {
-            sb.append(entry.getKey() + "=" + entry.getValue());
+        for (int i = 0; i < key.length; i++){
+            sb.append(key[i] + "=" + map.get(key[i]));
             sb.append("&");
         }
         String s = sb.toString();

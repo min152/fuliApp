@@ -17,17 +17,17 @@ import rx.schedulers.Schedulers;
  * 2017/1/5
  * @说明 代码版权归 作者 所有
  */
-public class RegisterDateHanle extends BaseDateHandle {
+public class RegisterDateHandle extends BaseDateHandle {
 
-    public static RegisterDateHanle mRegisterDateHanle;
+    public static RegisterDateHandle mRegisterDateHandle;
 
-    public static RegisterDateHanle getInstance() {
-        synchronized (RegisterDateHanle.class) {
-            if (null == mRegisterDateHanle) {
-                mRegisterDateHanle = new RegisterDateHanle();
+    public static RegisterDateHandle getInstance() {
+        synchronized (RegisterDateHandle.class) {
+            if (null == mRegisterDateHandle) {
+                mRegisterDateHandle = new RegisterDateHandle();
             }
         }
-        return mRegisterDateHanle;
+        return mRegisterDateHandle;
     }
 
     /**

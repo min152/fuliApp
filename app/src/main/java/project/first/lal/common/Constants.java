@@ -19,4 +19,6 @@ public class Constants {
     public static final String SUCCESS_CODE = "100000";
 
     public static final String FAIL_CODE = "-9999";
+
+    public static final int TRANTSPARENT = 50;
 }
