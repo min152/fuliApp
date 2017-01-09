@@ -1,7 +1,9 @@
 package project.first.lal.common.base;
 
+import android.first.lal.R;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
@@ -26,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (null == layout)
             return;
         setContentView(layout);
-        StatusBarUtil.setTranslucent(this, Constants.TRANTSPARENT);
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.title_bg), Constants.TRANTSPARENT);
         mUnbinder = ButterKnife.bind(this);  //保存引用
         onCreate();
         initClick();
