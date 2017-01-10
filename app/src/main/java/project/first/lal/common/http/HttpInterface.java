@@ -1,6 +1,6 @@
 package project.first.lal.common.http;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * user:zhuwt
@@ -11,7 +11,7 @@ import java.util.List;
  * @说明 代码版权归 作者 所有
  */
 public interface HttpInterface<T>{
-    void onNext(List<T> data);
+    void onNext(ArrayList<T> data);
 
     void onFail(String code,String msg);
 }

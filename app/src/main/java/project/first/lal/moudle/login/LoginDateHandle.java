@@ -5,6 +5,7 @@ import java.util.HashMap;
 import project.first.lal.common.base.BaseDateHandle;
 import project.first.lal.common.http.HttpInterface;
 import project.first.lal.common.http.HttpUtils;
+import project.first.lal.moudle.UserInfo;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -16,7 +17,7 @@ import rx.schedulers.Schedulers;
  * 2017/1/4
  * @说明 代码版权归 作者 所有
  */
-public class LoginDateHandle extends BaseDateHandle{
+public class LoginDateHandle extends BaseDateHandle<UserInfo> {
 
     public static LoginDateHandle mLoginDateHandle;
 

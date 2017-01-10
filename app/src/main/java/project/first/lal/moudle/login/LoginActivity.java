@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.BindView;
 import project.first.lal.common.base.BaseActivity;
@@ -63,7 +63,7 @@ public class LoginActivity extends BaseActivity {
                 LoginDateHandle.getInstance().login(new HttpInterface<UserInfo>() {
 
                     @Override
-                    public void onNext(List<UserInfo> data) {
+                    public void onNext(ArrayList<UserInfo> data) {
                         Log.i(TAG, data.toString());
                     }
 

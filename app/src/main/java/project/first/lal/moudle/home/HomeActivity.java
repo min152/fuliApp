@@ -11,13 +11,19 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import project.first.lal.common.base.BaseActivity;
+import project.first.lal.common.http.HttpInterface;
 import project.first.lal.common.utils.HotDecoration;
 import project.first.lal.common.utils.banner.BannerView;
+import project.first.lal.moudle.banner.BannerDateHandel;
+import project.first.lal.moudle.banner.BannerModel;
 import project.first.lal.moudle.hot.HotAdapter;
+import project.first.lal.moudle.hot.HotDateHandle;
 import project.first.lal.moudle.hot.HotModel;
 
 /**
@@ -40,52 +46,43 @@ public class HomeActivity extends BaseActivity {
     @BindView(R.id.home_recycle)
     RecyclerView mHomeRecycle;
 
-    private int[] banners = {
-            R.mipmap.img1,
-            R.mipmap.img2,
-            R.mipmap.img3,
-            R.mipmap.img4,
-            R.mipmap.img5
-    };
-
-    private ArrayList<HotModel> list = new ArrayList<>();
     private HotAdapter mAdapter;
-
+    private BannerAdapter mBannerAdapter;
     private Context mContext;
 
     @Override
     protected void onCreate() {
         mContext = this;
-        for (int i = 0; i < 5; i++) {
-            HotModel model = new HotModel();
-            model.setTitle("维多利亚的秘密");
-            model.setDescribe("最性感的天使都在这里");
-            model.setLink("http://imgsrc.baidu.com/forum/pic/item/2fed159b033b5bb5f3dce6a234d3d539b700bcb8.jpg");
-            model.setTotal("1024");
-            list.add(model);
-        }
-        mAdapter = new HotAdapter(list,mContext);
-        mHomeRecycle.setLayoutManager(new LinearLayoutManager(this));
-        mHomeRecycle.addItemDecoration(new HotDecoration(mContext,HotDecoration.HORIZONTAL_LIST));
-        mHomeRecycle.setAdapter(mAdapter);
-        mHomeBanner.setAdapter(new BannerView.Adapter() {
+        //获取热门数据
+        HotDateHandle.getInstance().hotDate(new HttpInterface<HotModel>() {
             @Override
-            public boolean isEmpty() {
-                return false;
+            public void onNext(ArrayList<HotModel> data) {
+                if (null != data && data.size() > 0) {
+                    mAdapter = new HotAdapter(data, mContext);
+                    mHomeRecycle.setLayoutManager(new LinearLayoutManager(mContext));
+                    mHomeRecycle.addItemDecoration(new HotDecoration(mContext, HotDecoration.HORIZONTAL_LIST));
+                    mHomeRecycle.setAdapter(mAdapter);
+                }
             }
 
             @Override
-            public View getView(int position) {
-                ImageView item = new ImageView(HomeActivity.this);
-                item.setLayoutParams(new ViewGroup.LayoutParams(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT));
-                item.setImageResource(banners[position]);
-                item.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                return item;
+            public void onFail(String code, String msg) {
+
+            }
+        });
+        //获取banner数据
+        BannerDateHandel.getInstance().banner(new HttpInterface<BannerModel>() {
+            @Override
+            public void onNext(ArrayList<BannerModel> data) {
+                if (null != data && data.size() > 0) {
+                    mBannerAdapter = new BannerAdapter(data, mContext);
+                    mHomeBanner.setAdapter(mBannerAdapter);
+                }
             }
 
             @Override
-            public int getCount() {
-                return banners.length;
+            public void onFail(String code, String msg) {
+
             }
         });
     }
@@ -103,5 +100,35 @@ public class HomeActivity extends BaseActivity {
 
             }
         });
+    }
+
+    private class BannerAdapter implements BannerView.Adapter {
+
+        private Context mContext;
+        private ArrayList<BannerModel> list;
+
+        public BannerAdapter(ArrayList<BannerModel> data, Context context) {
+            this.mContext = context;
+            this.list = data;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public View getView(int position) {
+            ImageView item = new ImageView(mContext);
+            item.setLayoutParams(new ViewGroup.LayoutParams(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT));
+            item.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            Glide.with(mContext).load(list.get(position).getLink()).into(item);
+            return item;
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
     }
 }

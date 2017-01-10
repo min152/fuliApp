@@ -1,5 +1,7 @@
 package project.first.lal.moudle.hot;
 
+import java.io.Serializable;
+
 /**
  * user:zhuwt
  *
@@ -8,7 +10,7 @@ package project.first.lal.moudle.hot;
  * 2017/1/9
  * @说明 代码版权归 作者 所有
  */
-public class HotModel {
+public class HotModel implements Serializable{
 
     private int hotId;
 

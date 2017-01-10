@@ -1,5 +1,7 @@
 package project.first.lal.common.base;
 
+import java.util.ArrayList;
+
 /**
  * YW zhuwt
  *
@@ -14,7 +16,7 @@ public class ResultMode<T> {
 
     private String msg;
 
-    private T content;
+    private ArrayList<T> content;
 
     public String getCode() {
         return code;
@@ -32,11 +34,20 @@ public class ResultMode<T> {
         this.msg = msg;
     }
 
-    public T getContent() {
+    public ArrayList<T> getContent() {
         return content;
     }
 
-    public void setContent(T content) {
+    public void setContent(ArrayList<T> content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "ResultMode{" +
+                "code='" + code + '\'' +
+                ", msg='" + msg + '\'' +
+                ", content=" + content +
+                '}';
     }
 }

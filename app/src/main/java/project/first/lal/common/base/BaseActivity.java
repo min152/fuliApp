@@ -28,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (null == layout)
             return;
         setContentView(layout);
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.title_bg), Constants.TRANTSPARENT);
+        setStatusBar();
         mUnbinder = ButterKnife.bind(this);  //保存引用
         onCreate();
         initClick();
@@ -38,5 +38,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mUnbinder.unbind();
+    }
+
+    protected void setStatusBar() {
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.title_bg), Constants.TRANTSPARENT);
     }
 }

@@ -17,7 +17,7 @@ import rx.schedulers.Schedulers;
  * 2017/1/5
  * @说明 代码版权归 作者 所有
  */
-public class RegisterDateHandle extends BaseDateHandle {
+public class RegisterDateHandle extends BaseDateHandle<UserInfo> {
 
     public static RegisterDateHandle mRegisterDateHandle;
 

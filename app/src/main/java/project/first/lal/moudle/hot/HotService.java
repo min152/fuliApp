@@ -20,5 +20,5 @@ public interface HotService {
 
     @FormUrlEncoded
     @POST("hot/hotDate.action")
-    Observable<ResultMode> hotDate(@FieldMap HashMap<String, String> map);
+    Observable<ResultMode<HotModel>> hotDate(@FieldMap HashMap<String, String> map);
 }

@@ -3,6 +3,7 @@ package project.first.lal.moudle.register;
 import java.util.HashMap;
 
 import project.first.lal.common.base.ResultMode;
+import project.first.lal.moudle.UserInfo;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -19,5 +20,5 @@ import rx.Observable;
 public interface RegisterService {
     @FormUrlEncoded
     @POST("user/register.action")
-    Observable<ResultMode> login(@FieldMap HashMap<String, String> map);
+    Observable<ResultMode<UserInfo>> login(@FieldMap HashMap<String, String> map);
 }
