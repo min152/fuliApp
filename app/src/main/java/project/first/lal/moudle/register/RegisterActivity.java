@@ -1,5 +1,6 @@
 package project.first.lal.moudle.register;
 
+import android.content.Intent;
 import android.first.lal.R;
 import android.util.Log;
 import android.view.View;
@@ -10,10 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.BindView;
+import project.first.lal.common.Constants;
 import project.first.lal.common.base.BaseActivity;
 import project.first.lal.common.http.HttpInterface;
 import project.first.lal.common.utils.MD5Util;
+import project.first.lal.common.utils.SPUtils;
 import project.first.lal.moudle.UserInfo;
+import project.first.lal.moudle.home.HomeActivity;
 
 /**
  * user:zhuwt
@@ -55,12 +59,18 @@ public class RegisterActivity extends BaseActivity {
                 phone = mEtRegisterPhone.getText().toString();
                 pwd = mEtRegisterPwd.getText().toString();
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("phone", phone);
-                map.put("pwd", MD5Util.Md5(pwd));
+                map.put("phone", "18767196567");
+                map.put("pwd", MD5Util.Md5("123456"));
                 RegisterDateHandle.getInstance().register(new HttpInterface<UserInfo>() {
                     @Override
                     public void onNext(ArrayList<UserInfo> data) {
-                        Log.e(TAG, data.toString());
+                        if (null != data && data.size() > 0) {
+                            UserInfo userInfo = data.get(0);
+                            SPUtils.put(Constants.PHONE,"18767196567");
+                            SPUtils.put(Constants.PWD,MD5Util.Md5("123456"));
+                            SPUtils.put(Constants.ISLOGIN,true);
+                            startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                        }
                     }
 
                     @Override

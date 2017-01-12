@@ -11,9 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.BindView;
+import project.first.lal.common.Constants;
 import project.first.lal.common.base.BaseActivity;
 import project.first.lal.common.http.HttpInterface;
+import project.first.lal.common.utils.MD5Util;
+import project.first.lal.common.utils.SPUtils;
 import project.first.lal.moudle.UserInfo;
+import project.first.lal.moudle.home.HomeActivity;
 import project.first.lal.moudle.register.RegisterActivity;
 
 public class LoginActivity extends BaseActivity {
@@ -55,16 +59,27 @@ public class LoginActivity extends BaseActivity {
         mSubLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean isLogin = (boolean) SPUtils.get(Constants.ISLOGIN,false);
+                if (isLogin){
+                    startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                    finish();
+                }
                 account = mEtPhone.getText().toString();
                 pwd = mEtPwd.getText().toString();
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("account", "zhoukaikai");
-                map.put("pwd", "3f476d9130d43d57f9fafa1314ae1334");
+                map.put("phone", "18767196567");
+                map.put("pwd", MD5Util.Md5("123456"));
                 LoginDateHandle.getInstance().login(new HttpInterface<UserInfo>() {
 
                     @Override
                     public void onNext(ArrayList<UserInfo> data) {
-                        Log.i(TAG, data.toString());
+                        if (null != data && data.size() > 0) {
+                            UserInfo userInfo = data.get(0);
+                            SPUtils.put(Constants.PHONE,"18767196567");
+                            SPUtils.put(Constants.PWD,MD5Util.Md5("123456"));
+                            SPUtils.put(Constants.ISLOGIN,true);
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                        }
                     }
 
                     @Override

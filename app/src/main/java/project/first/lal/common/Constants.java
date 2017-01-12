@@ -21,4 +21,12 @@ public class Constants {
     public static final String FAIL_CODE = "-9999";
 
     public static final int TRANTSPARENT = 50;
+
+    public static final String PHONE = "phone";
+
+    public static final String PWD = "pwd";
+
+    public static final String ISLOGIN = "isLogin";
+
+    public static final String PAGE_SIZE = "20";
 }

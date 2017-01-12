@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import project.first.lal.common.utils.GlideCircleTransform;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * user:zhuwt
@@ -44,7 +44,7 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.HotHolder> {
     @Override
     public void onBindViewHolder(HotHolder holder, int position) {
         HotModel hotModel = mList.get(position);
-        Glide.with(mContext).load(hotModel.getLink()).bitmapTransform(new GlideCircleTransform(mContext)).into(holder.hotLink);
+        Glide.with(mContext).load(hotModel.getLink()).bitmapTransform(new RoundedCornersTransformation(mContext,3,0)).into(holder.hotLink);
         holder.hotTotal.setText(hotModel.getTotal());
         holder.hotDescribe.setText(hotModel.getDescribe());
         holder.hotName.setText(hotModel.getTitle());
