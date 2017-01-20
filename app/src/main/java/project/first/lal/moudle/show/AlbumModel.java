@@ -1,5 +1,7 @@
 package project.first.lal.moudle.show;
 
+import java.io.Serializable;
+
 /**
  * user:zhuwt
  *
@@ -8,8 +10,9 @@ package project.first.lal.moudle.show;
  * 2017/1/11
  * @说明 代码版权归 作者 所有
  */
-public class PictureModel {
-    private int pictureId;
+public class AlbumModel implements Serializable{
+
+    private Integer albumId;
 
     private String title;
 
@@ -17,14 +20,16 @@ public class PictureModel {
 
     private String link;
 
-    private int type;
+    private String label;
 
-    public int getPictureId() {
-        return pictureId;
+    private Integer theme;
+
+    public Integer getAlbumId() {
+        return albumId;
     }
 
-    public void setPictureId(int pictureId) {
-        this.pictureId = pictureId;
+    public void setAlbumId(Integer albumId) {
+        this.albumId = albumId;
     }
 
     public String getTitle() {
@@ -51,11 +56,19 @@ public class PictureModel {
         this.link = link;
     }
 
-    public int getType() {
-        return type;
+    public String getLabel() {
+        return label;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Integer getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Integer theme) {
+        this.theme = theme;
     }
 }

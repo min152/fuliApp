@@ -1,7 +1,6 @@
 package project.first.lal.common.Glide;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -31,8 +30,6 @@ public class GlideListener implements RequestListener<String, GlideDrawable> {
         screenHeight = ScreenUtils.getScreenHeight(context);
     }
 
-    ;
-
     @Override
     public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
         return false;
@@ -49,10 +46,10 @@ public class GlideListener implements RequestListener<String, GlideDrawable> {
         else
             layoutParams.height = (int) (resourceH * ((float) screenWidth / resourceW));
 //                            holder.showImg.setMinimumHeight((int) (resourceH * ((float) width / resourceW)));
-        Log.e("showAdapter", "width=" + resourceW + "\n"
-                + "heigth=" + resourceH + "\n"
-                + "w=" + gifView.getLayoutParams().width + "\n"
-                + "h=" + gifView.getLayoutParams().height);
+//        Log.e("showAdapter", "width=" + resourceW + "\n"
+//                + "heigth=" + resourceH + "\n"
+//                + "w=" + gifView.getLayoutParams().width + "\n"
+//                + "h=" + gifView.getLayoutParams().height);
         gifView.setLayoutParams(layoutParams);
         return false;
     }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/show_item"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="6dp"
+                                    android:layout_marginRight="6dp"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@color/white"
+                                    android:orientation="vertical"
+                                    app:cardCornerRadius="3dp"
+                                    app:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/show_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/show_img"
+            android:background="@color/title_bg"/>
+
+        <Button
+            android:id="@+id/show_item_label"
+            android:layout_width="36dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/show_img"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/hot_item_button"
+            android:textColor="@color/white"
+            android:textSize="10sp"/>
+
+
+        <TextView
+            android:id="@+id/show_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/show_item_label"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/show_item_label"
+            android:layout_toRightOf="@+id/show_item_label"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/show_item_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/show_item_label"
+            android:layout_below="@id/show_item_label"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/item_describe"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

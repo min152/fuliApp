@@ -23,7 +23,8 @@ public class HttpUtils {
 
     public static HttpUtils mHttpUtils;
 
-    private static String HTTP_URL = "http://192.168.0.109:8080/Fuli_Maven_Webapp/";
+//    private static String HTTP_URL = "http://192.168.0.109:8080/Fuli_Maven_Webapp/";
+    private static String HTTP_URL = "http://114.55.238.210:8080/Fuli_Maven_Webapp/";
 
     private final int DEFAULT_TIMEOUT = 5;
 

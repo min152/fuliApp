@@ -16,7 +16,7 @@ import rx.schedulers.Schedulers;
  * 2017/1/12
  * @说明 代码版权归 作者 所有
  */
-public class ShowDataHandle extends BaseDateHandle<PictureModel> {
+public class ShowDataHandle extends BaseDateHandle<AlbumModel> {
     public static ShowDataHandle mShowDataHandle;
 
     public static ShowDataHandle getInstance() {
@@ -28,9 +28,9 @@ public class ShowDataHandle extends BaseDateHandle<PictureModel> {
         return mShowDataHandle;
     }
 
-    public void hotDate(HttpInterface<PictureModel> httpInterface, HashMap<String,String> params) {
+    public void hotDate(HttpInterface<AlbumModel> httpInterface, HashMap<String,String> params) {
         ShowService showService = HttpUtils.getInstance().getHttpRx(ShowService.class);
-        showService.pictureDate(md5Params())
+        showService.pictureDate(md5Params(params))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(handleDate(httpInterface));

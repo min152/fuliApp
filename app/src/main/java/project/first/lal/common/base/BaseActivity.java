@@ -1,14 +1,11 @@
 package project.first.lal.common.base;
 
-import android.first.lal.R;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import project.first.lal.common.Constants;
 import project.first.lal.common.utils.statusBar.StatusBarUtil;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -41,6 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void setStatusBar() {
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.title_bg), Constants.TRANTSPARENT);
+        StatusBarUtil.setTranslucent(this);
     }
 }

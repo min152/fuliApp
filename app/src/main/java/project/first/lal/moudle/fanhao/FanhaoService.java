@@ -1,4 +1,4 @@
-package project.first.lal.moudle.show;
+package project.first.lal.moudle.fanhao;
 
 import java.util.HashMap;
 
@@ -13,12 +13,12 @@ import rx.Observable;
  *
  * @Description: ${todo}(这里用一句话描述这个类的作用)
  * @ClassName: ${type_name}.java
- * 2017/1/12
+ * 2017/1/20
  * @说明 代码版权归 作者 所有
  */
-public interface ShowService {
+public interface FanhaoService {
 
     @FormUrlEncoded
-    @POST("album/albumData.action")
-    Observable<ResultMode<AlbumModel>> pictureDate(@FieldMap HashMap<String, String> map);
+    @POST("fanhao/fanhaoData.action")
+    Observable<ResultMode<DesignationModel>> fanhaoData(@FieldMap HashMap<String, String> map);
 }

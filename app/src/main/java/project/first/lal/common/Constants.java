@@ -20,7 +20,7 @@ public class Constants {
 
     public static final String FAIL_CODE = "-9999";
 
-    public static final int TRANTSPARENT = 50;
+    public static final int TRANTSPARENT = 20;
 
     public static final String PHONE = "phone";
 
