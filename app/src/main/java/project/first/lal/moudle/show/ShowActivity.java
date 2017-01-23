@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.BindView;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
 import project.first.lal.common.Constants;
 import project.first.lal.common.base.BaseActivity;
 import project.first.lal.common.http.HttpInterface;
@@ -40,8 +37,6 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
     RecyclerView mShowRecycle;
     @BindView(R.id.show_toolbar)
     Toolbar mShowToolbar;
-    @BindView(R.id.show_prt)
-    PtrClassicFrameLayout mShowPrt;
 
     private final String TAG = "ShowActivity";
 
@@ -58,10 +53,6 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
         mShowToolbar.setTitle(model.getTitle());
         mShowToolbar.setTitleTextColor(ContextCompat.getColor(mContext,R.color.white));
         setSupportActionBar(mShowToolbar);
-        mShowPrt.setResistance(1.7f);
-        mShowPrt.setRatioOfHeaderHeightToRefresh(1.2f);
-        mShowPrt.setDurationToClose(200);
-        mShowPrt.setDurationToCloseHeader(1000);
         HashMap<String, String> params = new HashMap<>();
         params.put("startPage", index + "");
         params.put("theme", "1");
@@ -91,16 +82,6 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
 
     @Override
     protected void initClick() {
-        //下拉刷新
-        mShowPrt.setPtrHandler(new PtrDefaultHandler() {
-
-            @Override
-            public void onRefreshBegin(final PtrFrameLayout frame) {
-                mShowPrt.setPullToRefresh(true);
-            }
-
-        });
-
         mShowRecycle.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -117,7 +98,7 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
 
     @Override
     protected void setStatusBar() {
-        StatusBarUtil.setTranslucent(this, Constants.TRANTSPARENT);
+        StatusBarUtil.setTransparent(this);
     }
 
     @Override

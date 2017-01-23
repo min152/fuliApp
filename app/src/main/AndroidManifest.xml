@@ -36,7 +36,8 @@
 
         <activity
             android:name="project.first.lal.moudle.fanhao.FanhaoActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Fanhao"/>
 
 
         <!--Glide设置-->

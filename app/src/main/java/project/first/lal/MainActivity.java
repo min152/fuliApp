@@ -3,20 +3,27 @@ package project.first.lal;
 import android.first.lal.R;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.webkit.WebView;
 
 import java.io.File;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private WebView mWebView;
-//    private ProgressWheel mProgressWheel;
+    //    private ProgressWheel mProgressWheel;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recycle_foot_view);
+        setContentView(R.layout.activity_main);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
 //        mWebView = (WebView) findViewById(R.id.web_view);
 //        mWebView.getSettings().setJavaScriptEnabled(true);
 ////        mWebView.loadUrl("http://www.zhainanfulishe.net/2872.html");
@@ -61,4 +68,8 @@ public class MainActivity extends AppCompatActivity {
         return sdDir.toString();
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
+    }
 }

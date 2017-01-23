@@ -14,4 +14,20 @@
     <!--home-->
     <string name="home_radio">福利</string>
     <string name="subscribe_radio">订阅</string>
+
+    <!--番号 菜单-->
+    <string name="fanhao_type">类型</string>
+    <string name="fanhao_type_all">全部</string>
+    <string name="fanhao_type_bubin">步兵</string>
+    <string name="fanhao_type_zimu">字幕</string>
+    <string name="fanhao_type_danti">单体</string>
+    <string name="fanhao_type_duom">多体</string>
+    <string name="fanhao_type_renqi">人妻</string>
+    <string name="fanhao_type_huwai">户外</string>
+    <string name="fanhao_type_xiaoy">校园</string>
+    <string name="fanhao_type_jfei">警匪</string>
+    <string name="fanhao_type_qihuan">奇幻</string>
+
+    <string name="fanhao_score">评分</string>
+
 </resources>

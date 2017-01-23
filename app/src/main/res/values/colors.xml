@@ -16,4 +16,9 @@
     <!--hot-->
     <color name="item_describe">#A9A9A9</color>
     <color name="item_title">#A2A2A2</color>
+
+    <!--番号-->
+    <color name="fanhao_title_bk">#151515</color>
+    <color name="fanhao_nv_bk">#F5F5F5</color>
+    <color name="fanhao_item_bk">#F4F4F4</color>
 </resources>

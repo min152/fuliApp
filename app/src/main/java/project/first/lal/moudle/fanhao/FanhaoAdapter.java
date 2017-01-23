@@ -38,6 +38,14 @@ public class FanhaoAdapter extends FootHolderAdapter<FanhaoAdapter.FanhaoHolder>
         setBaseActivity(activity);
     }
 
+    //刷新数据 重新设置数据源
+    void setData(ArrayList<DesignationModel> data) {
+        mList.addAll(data);
+        setList(mList);
+        onLoadMore(false);
+        notifyDataSetChanged();
+    }
+
     @Override
     public FanhaoHolder createViewHolder(ViewGroup parent) {
         return new FanhaoHolder(parent);
@@ -53,17 +61,29 @@ public class FanhaoAdapter extends FootHolderAdapter<FanhaoAdapter.FanhaoHolder>
         DesignationModel model = mList.get(position);
         Glide.with(mContext).load(model.getLink()).into(holder.img);
         holder.fanhao.setText(model.getFanhao());
+        holder.source.setText(model.getScore() + "");
+        holder.time.setText(model.getReleaseTime());
+        holder.company.setText(model.getFilmDistributor());
+        holder.actress.setText(model.getActress());
     }
 
     static class FanhaoHolder extends RecyclerView.ViewHolder {
 
         private ImageView img;
         private TextView fanhao;
+        private TextView source;
+        private TextView time;
+        private TextView company;
+        private TextView actress;
 
         public FanhaoHolder(View itemView) {
             super(itemView);
             img = (ImageView) itemView.findViewById(R.id.fanhao_item_img);
             fanhao = (TextView) itemView.findViewById(R.id.fanhao_item_fanhao);
+            source = (TextView) itemView.findViewById(R.id.fanhao_item_source);
+            time = (TextView) itemView.findViewById(R.id.fanhao_item_time);
+            company = (TextView) itemView.findViewById(R.id.fanhao_item_company);
+            actress = (TextView) itemView.findViewById(R.id.fanhao_item_actress);
         }
     }
 }

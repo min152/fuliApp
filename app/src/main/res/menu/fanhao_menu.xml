@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/all"
+            android:title="@string/fanhao_type_all"/>
+        <item
+            android:id="@+id/bubin"
+            android:title="@string/fanhao_type_bubin"/>
+        <item
+            android:id="@+id/zimu"
+            android:title="@string/fanhao_type_zimu"/>
+        <item
+            android:id="@+id/danti"
+            android:title="@string/fanhao_type_danti"/>
+        <item
+            android:id="@+id/duom"
+            android:title="@string/fanhao_type_duom"/>
+        <item
+            android:id="@+id/renq"
+            android:title="@string/fanhao_type_renqi"/>
+        <item
+            android:id="@+id/huwai"
+            android:title="@string/fanhao_type_huwai"/>
+        <item
+            android:id="@+id/xiaoy"
+            android:title="@string/fanhao_type_xiaoy"/>
+        <item
+            android:id="@+id/jfei"
+            android:title="@string/fanhao_type_jfei"/>
+        <item
+            android:id="@+id/qihuan"
+            android:title="@string/fanhao_type_qihuan"/>
+    </group>
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/fanhao_sc"
+            android:title="@string/fanhao_score">
+        </item>
+    </group>
+
+</menu>

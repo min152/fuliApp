@@ -2,9 +2,13 @@ package project.first.lal.moudle.fanhao;
 
 import android.content.Context;
 import android.first.lal.R;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,10 +29,14 @@ import project.first.lal.moudle.hot.HotModel;
  * @说明 代码版权归 作者 所有
  */
 public class FanhaoActivity extends BaseActivity implements LoadMoreInterface {
-    @BindView(R.id.fanhao_toolbar)
-    Toolbar mFanhaoToolbar;
+
+    DrawerLayout mFanhaoDrawer;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
     @BindView(R.id.fanhao_recycle)
     RecyclerView mFanhaoRecycle;
+    @BindView(R.id.nav_view)
+    NavigationView mNavView;
     private Context mContext;
     private int index = 0;
 
@@ -38,10 +46,11 @@ public class FanhaoActivity extends BaseActivity implements LoadMoreInterface {
     @Override
     protected void onCreate() {
         mContext = this;
+        mFanhaoDrawer = (DrawerLayout) findViewById(R.id.fanhao_drawer);
         HotModel model = (HotModel) getIntent().getSerializableExtra("fanhao");
         String title = model.getTitle();
-        mFanhaoToolbar.setTitle(title);
-        setSupportActionBar(mFanhaoToolbar);
+        mToolbar.setTitle(title);
+        setSupportActionBar(mToolbar);
         mFanhaoRecycle.setLayoutManager(new LinearLayoutManager(mContext));
         HashMap<String, String> params = new HashMap<>();
         params.put("startPage", "" + index);
@@ -71,7 +80,13 @@ public class FanhaoActivity extends BaseActivity implements LoadMoreInterface {
 
     @Override
     protected void initClick() {
-
+        mNavView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                Log.e("xx", item.getTitle() + "");
+                return true;
+            }
+        });
     }
 
     @Override
@@ -91,7 +106,7 @@ public class FanhaoActivity extends BaseActivity implements LoadMoreInterface {
                 public void onNext(ArrayList<DesignationModel> data) {
                     if (null != data && data.size() > 0) {
                         list.addAll(data);
-                        mAdapter.setList(data);
+                        mAdapter.setData(data);
                     }
                 }
 
@@ -101,5 +116,9 @@ public class FanhaoActivity extends BaseActivity implements LoadMoreInterface {
                 }
             }, params);
         }
+    }
+
+    @Override
+    protected void setStatusBar() {
     }
 }

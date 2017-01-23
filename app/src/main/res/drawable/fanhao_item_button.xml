@@ -2,8 +2,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
+            <stroke
+                android:color="@color/item_describe"
+                android:width="2px"/>
             <corners android:radius="5dp"/>
-            <solid android:color="@color/colorPrimary"/>
+            <solid android:color="@color/item_describe"/>
         </shape>
     </item>
 </layer-list>

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
-    android:background="@color/fanhao_nv_bk"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/show_toolbar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/fanhao_title_bk"
         android:navigationIcon="@mipmap/back"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@mipmap/back"/>
 
+
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/show_recycle"
+        android:id="@+id/fanhao_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 </LinearLayout>
