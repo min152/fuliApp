@@ -80,7 +80,7 @@ public class FanhaoAdapter extends FootHolderAdapter<FanhaoAdapter.FanhaoHolder>
 
         public FanhaoHolder(View itemView) {
             super(itemView);
-            img = (ImageView) itemView.findViewById(R.id.fanhao_item_img);
+            img = (ImageView) itemView.findViewById(R.id.fanhao_item_img2);
             fanhao = (TextView) itemView.findViewById(R.id.fanhao_item_fanhao);
             source = (TextView) itemView.findViewById(R.id.fanhao_item_source);
             time = (TextView) itemView.findViewById(R.id.fanhao_item_time);
