@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 
@@ -32,7 +33,7 @@ import project.first.lal.moudle.hot.HotModel;
  * 2017/1/11
  * @说明 代码版权归 作者 所有
  */
-public class ShowActivity extends BaseActivity implements RecycleInterface,LoadMoreInterface {
+public class ShowActivity extends BaseActivity implements RecycleInterface, LoadMoreInterface {
     @BindView(R.id.show_recycle)
     RecyclerView mShowRecycle;
     @BindView(R.id.show_toolbar)
@@ -51,7 +52,7 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
         mContext = this;
         HotModel model = (HotModel) getIntent().getSerializableExtra("hot");
         mShowToolbar.setTitle(model.getTitle());
-        mShowToolbar.setTitleTextColor(ContextCompat.getColor(mContext,R.color.white));
+        mShowToolbar.setTitleTextColor(ContextCompat.getColor(mContext, R.color.white));
         setSupportActionBar(mShowToolbar);
         HashMap<String, String> params = new HashMap<>();
         params.put("startPage", index + "");
@@ -86,39 +87,39 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-               if (RecyclerView.SCROLL_STATE_SETTLING == newState ||
-                       RecyclerView.SCROLL_STATE_DRAGGING == newState ){
-                   Glide.with(mContext).pauseRequests();
-               }else{
-                   Glide.with(mContext).resumeRequests();
-               }
+                if (RecyclerView.SCROLL_STATE_SETTLING == newState ||
+                        RecyclerView.SCROLL_STATE_DRAGGING == newState) {
+                    Glide.with(mContext).pauseRequests();
+                } else {
+                    Glide.with(mContext).resumeRequests();
+                }
             }
         });
     }
 
     @Override
     protected void setStatusBar() {
-        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.setColorNoTranslucent(this, ContextCompat.getColor(this, R.color.show_Primary));
     }
 
     @Override
-    public void onItemClick(int viewId, int position) {
+    public void onItemClick(View viewId, int position) {
         AlbumModel model = list.get(position);
         Intent mIntent = new Intent(ShowActivity.this, AlbumActivity.class);
-        mIntent.putExtra("album",model);
+        mIntent.putExtra("album", model);
         startActivity(mIntent);
     }
 
 
     @Override
     public void loadMore(boolean loadMore) {
-        if (loadMore){
+        if (loadMore) {
             //释放viewType 否则会复用 不会执行onCreateViewHolder方法
             RecyclerView.RecycledViewPool viewPool = mShowRecycle.getRecycledViewPool();
             //clear方法没用 还是会复用 并且效率不高 每次将foot重新缓存
-            viewPool.setMaxRecycledViews(1,0);
+            viewPool.setMaxRecycledViews(1, 0);
             index++;
-            Log.e(TAG,"index="+index);
+            Log.e(TAG, "index=" + index);
             HashMap<String, String> params = new HashMap<>();
             params.put("startPage", index + "");
             params.put("theme", "1");
@@ -139,4 +140,5 @@ public class ShowActivity extends BaseActivity implements RecycleInterface,LoadM
             }, params);
         }
     }
+
 }

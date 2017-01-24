@@ -1,76 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                    android:id="@+id/fanhao_item"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="250dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="8dp"
-                                    android:layout_marginTop="10dp"
-                                    app:cardCornerRadius="3dp"
-                                    app:cardElevation="2dp">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="250dp"
+              android:layout_marginBottom="5dp">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/nav_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="230dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="2dp">
 
-        <LinearLayout
-            android:layout_width="0dp"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:id="@+id/fanhao_item_img"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:scaleType="center"
+                android:src="@mipmap/img5"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/fanhao_item_img"
+                android:background="@color/home_back"/>
+
+            <TextView
+                android:id="@+id/fanhao_item_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fanhao_item_img"
+                android:layout_marginTop="20dp"
+                android:alpha="70"
+                android:drawableLeft="@mipmap/label"
+                android:drawablePadding="10dp"
+                android:drawableStart="@mipmap/label"
+                android:gravity="center"
+                android:textColor="@color/fanhao_item_fanhao"
+                android:textSize="14sp"/>
 
             <TextView
                 android:id="@+id/fanhao_item_fanhao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SNIS-860"
-                android:textColor="@color/black"
-                android:textSize="23sp"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@id/fanhao_item_img"
+                android:layout_toRightOf="@id/fanhao_item_img"
+                android:textColor="@color/fanhao_item_fanhao"
+                android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/fanhao_item_company"
+                android:id="@+id/fanhao_item_actress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/item_describe"
-                android:textSize="16sp"/>
+                android:layout_below="@id/fanhao_item_fanhao"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/fanhao_item_img"
+                android:layout_toRightOf="@id/fanhao_item_img"
+                android:textColor="@color/fanhao_item_time"
+                android:textSize="14sp"/>
 
 
             <TextView
                 android:id="@+id/fanhao_item_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:textSize="23sp"/>
+                android:layout_below="@id/fanhao_item_actress"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/fanhao_item_img"
+                android:layout_toRightOf="@id/fanhao_item_img"
+                android:drawableLeft="@mipmap/star"
+                android:drawablePadding="20dp"
+                android:drawableStart="@mipmap/star"
+                android:gravity="center"
+                android:textColor="@color/show_Primary"
+                android:textSize="14sp"/>
 
             <TextView
-                android:id="@+id/fanhao_item_actress"
+                android:id="@+id/fanhao_item_company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:layout_below="@id/fanhao_item_source"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/fanhao_item_img"
+                android:layout_toRightOf="@id/fanhao_item_img"
+                android:alpha="60"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/fanhao_item_time"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/fanhao_item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/item_describe"
-                android:textSize="14sp"/>
+                android:layout_below="@id/fanhao_item_company"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/fanhao_item_img"
+                android:layout_toRightOf="@id/fanhao_item_img"
+                android:alpha="60"
+                android:textColor="@color/fanhao_item_time"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/fanhao_item_img"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/img5"/>
-
-    </LinearLayout>
-
-
-</android.support.v7.widget.CardView>
+</FrameLayout>

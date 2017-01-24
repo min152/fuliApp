@@ -105,7 +105,7 @@ public class HomeActivity extends BaseActivity implements RecycleInterface {
     }
 
     @Override
-    public void onItemClick(int viewId, int position) {
+    public void onItemClick(View viewId, int position) {
         HotModel model = mList.get(position);
         if (1 == model.getHotId()) {
             Intent mIntent = new Intent(mContext, ShowActivity.class);

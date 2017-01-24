@@ -61,7 +61,6 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ((AlbumHeadHolder) holder).describe.setText(describe);
         } else if (holder instanceof AlbumHolder) {
             AlbumModel model = mList.get(position);
-            //显示图片
             Glide.with(mContext).load(model.getLink())
                     .skipMemoryCache(true)
                     .listener(new GlideListener(((AlbumHolder) holder).photo, mContext))
@@ -98,7 +97,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @Override
         public void onClick(View v) {
             if (null != mRecycleInterface)
-                mRecycleInterface.onItemClick(v.getId(), getAdapterPosition());
+                mRecycleInterface.onItemClick(v, getAdapterPosition());
         }
     }
 
@@ -117,7 +116,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @Override
         public void onClick(View v) {
             if (null != mRecycleInterface)
-                mRecycleInterface.onItemClick(v.getId(), getAdapterPosition());
+                mRecycleInterface.onItemClick(v, getAdapterPosition());
         }
     }
 

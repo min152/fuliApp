@@ -39,6 +39,11 @@
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.Fanhao"/>
 
+        <!--<activity-->
+            <!--android:name="project.first.lal.moudle.ImageDetailActivity"-->
+            <!--android:launchMode="singleTop"/>-->
+
+
 
         <!--Glide设置-->
         <meta-data

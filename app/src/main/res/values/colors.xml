@@ -17,8 +17,16 @@
     <color name="item_describe">#A9A9A9</color>
     <color name="item_title">#A2A2A2</color>
 
+    <!--show-->
+    <color name="show_Primary">#FF80AB</color>
+    <color name="show_PrimaryDark">#F50057</color>
+
     <!--番号-->
     <color name="fanhao_title_bk">#151515</color>
     <color name="fanhao_nv_bk">#F5F5F5</color>
-    <color name="fanhao_item_bk">#F4F4F4</color>
+    <color name="fanhao_item_bk">#F2F5F6</color>
+    <color name="fanhao_item_fanhao">#3E4B56</color>
+    <color name="fanhao_item_time">#ABB6BF</color>
+    <color name="fanhao_item_scource">#8B8B8B</color>
+
 </resources>

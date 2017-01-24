@@ -65,6 +65,7 @@ public class FanhaoAdapter extends FootHolderAdapter<FanhaoAdapter.FanhaoHolder>
         holder.time.setText(model.getReleaseTime());
         holder.company.setText(model.getFilmDistributor());
         holder.actress.setText(model.getActress());
+        holder.lael.setText(model.getLabel());
     }
 
     static class FanhaoHolder extends RecyclerView.ViewHolder {
@@ -75,6 +76,7 @@ public class FanhaoAdapter extends FootHolderAdapter<FanhaoAdapter.FanhaoHolder>
         private TextView time;
         private TextView company;
         private TextView actress;
+        private TextView lael;
 
         public FanhaoHolder(View itemView) {
             super(itemView);
@@ -84,6 +86,7 @@ public class FanhaoAdapter extends FootHolderAdapter<FanhaoAdapter.FanhaoHolder>
             time = (TextView) itemView.findViewById(R.id.fanhao_item_time);
             company = (TextView) itemView.findViewById(R.id.fanhao_item_company);
             actress = (TextView) itemView.findViewById(R.id.fanhao_item_actress);
+            lael = (TextView) itemView.findViewById(R.id.fanhao_item_label);
         }
     }
 }

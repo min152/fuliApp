@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/fanhao_nv_bk"
+    android:background="@color/home_back"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/show_toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorAccent"
+        android:background="@color/show_Primary"
         android:navigationIcon="@mipmap/back"
         app:navigationIcon="@mipmap/back"/>
 

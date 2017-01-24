@@ -105,7 +105,7 @@ public class ShowAdapter extends FootHolderAdapter<ShowAdapter.ShowHolder> {
         @Override
         public void onClick(View v) {
             if (null != mInterface) {
-                mInterface.onItemClick(v.getId(), getAdapterPosition());
+                mInterface.onItemClick(v, getAdapterPosition());
             }
         }
     }

@@ -55,6 +55,21 @@
         android:id="@+id/album_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <FrameLayout
+        android:id="@+id/album_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/half_transparent"
+        android:visibility="gone">
+
+        <project.first.lal.common.utils.photo.PhotoView
+            android:id="@+id/album_photview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

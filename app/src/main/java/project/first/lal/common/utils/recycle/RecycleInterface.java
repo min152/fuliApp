@@ -1,5 +1,7 @@
 package project.first.lal.common.utils.recycle;
 
+import android.view.View;
+
 /**
  * user:zhuwt
  *
@@ -10,5 +12,5 @@ package project.first.lal.common.utils.recycle;
  */
 public interface RecycleInterface {
 
-    void onItemClick(int viewId,int position);
+    void onItemClick(View v, int position);
 }
